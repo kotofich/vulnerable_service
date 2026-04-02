@@ -23,7 +23,7 @@ def append_decision(verdict, target_id, remote_addr):
         log_file.write(line)
 
 
-@app.route("/", methods=["GET"])
+@app.route("/main", methods=["GET"])
 def index():
     verdict = request.args.get("verdict", "").strip().lower()
     target_id = request.args.get("id", "001").strip()
@@ -68,11 +68,7 @@ def index():
         append_decision(verdict=verdict, target_id=target_id, remote_addr=remote_addr)
 
         # Формируем сообщение с учетом статуса
-        verdict_text = "УСТРАНИТЬ" if verdict == "kill" else "СОХРАНИТЬ"
-        message = "РЕШЕНИЕ ЗАФИКСИРОВАНО: {0} / ЦЕЛЬ {1}".format(
-            verdict_text,
-            target_id or "???",
-        )
+
         message_kind = verdict
 
         # Дополнительно сохраняем в ssti_result, если пользователь не вводил свой шаблон
@@ -83,7 +79,7 @@ def index():
         message_kind = "error"
 
     return render_template(
-        "index.html",
+        "main.html",
         message=message,
         message_kind=message_kind,
         target_id=target_id,
@@ -99,6 +95,11 @@ def help_page():
         "help.html",
         advisory_url="https://github.com/dgtlmoon/changedetection.io/security/advisories/GHSA-4r7v-whpg-8rx3"
     )
+
+
+@app.route("/")
+def main_page():
+    return render_template("index.html")
 
 
 if __name__ == "__main__":

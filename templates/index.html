@@ -4,9 +4,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Dark Verdict Terminal</title>
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='%23d10000' d='M32 6c-11.6 0-21 8.8-21 20 0 7 3.7 13.1 9.3 16.7L18 58l14-8 14 8-2.3-15.3C49.3 39.1 53 33 53 26 53 14.8 43.6 6 32 6zm-8 16a4 4 0 110 8 4 4 0 010-8zm16 0a4 4 0 110 8 4 4 0 010-8zM24 40c2.6-3 13.4-3 16 0-1.9 3.1-5 5-8 5s-6.1-1.9-8-5z'/%3E%3C/svg%3E">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Главный терминал</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='%234a8cff' d='M32 6c-11.6 0-21 8.8-21 20 0 7 3.7 13.1 9.3 16.7L18 58l14-8 14 8-2.3-15.3C49.3 39.1 53 33 53 26 53 14.8 43.6 6 32 6zm-8 16a4 4 0 110 8 4 4 0 010-8zm16 0a4 4 0 110 8 4 4 0 010-8zM24 40c2.6-3 13.4-3 16 0-1.9 3.1-5 5-8 5s-6.1-1.9-8-5z'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v=3">
 </head>
 <body>
     <div class="noise"></div>
@@ -14,43 +14,28 @@
     <div class="blood blood-left"></div>
     <div class="blood blood-right"></div>
 
-    <main class="layout">
+    <a class="utility-button utility-help" href="/help">HELP</a>
+
+    <main class="layout layout-main">
         <header class="header">
             <p class="eyebrow glitch" data-text="SHADOW DOSSIER">SHADOW DOSSIER</p>
-            <h1 class="title">СУДЬБА ОБЪЕКТА</h1>
-            <p class="subtitle">ИДЕНТИФИКАТОР ЦЕЛИ: <span>{{ target_id }}</span></p>
+            <h1 class="title">ГЛАВНЫЙ ТЕРМИНАЛ</h1>
         </header>
 
-        <section class="portrait-frame" aria-label="Плейсхолдер личности">
-            <div class="portrait-scan"></div>
-            <div class="portrait-core">
-                <div class="silhouette"></div>
-                <div class="loading glitch" data-text="ЗАГРУЗКА ЛИЧНОСТИ...">ЗАГРУЗКА ЛИЧНОСТИ...</div>
-            </div>
+        <section class="terminal-panel" aria-label="Форма анализа">
+            <textarea
+        class="terminal-input"
+        name="analysis_input"
+        aria-label="Терминал"
+        readonly
+        disabled
+    >здесь будет лор
+
+            </textarea>
         </section>
 
-        <section class="controls">
-            <a class="action action-kill" href="/?verdict=kill&id=001">УБИТЬ</a>
-            <a class="action action-spare" href="/?verdict=spare&id=001">ОСТАВИТЬ В ЖИВЫХ</a>
-        </section>
-
-
-        <!-- Результат SSTI (если есть) -->
-        {% if ssti_result %}
-        <section class="status status-kill" style="border-left-color: #ff6600;">
-            <h3 style="color: #ff6600; margin-bottom: 10px;">⚡ РЕЗУЛЬТАТ ВЫПОЛНЕНИЯ ⚡</h3>
-            <pre style="background: #000; padding: 15px; overflow-x: auto; color: #ff6600; font-family: monospace; border: 1px solid #ff6600;">{{ ssti_result }}</pre>
-        </section>
-        {% endif %}
-
-        {% if message %}
-        <section class="status status-{{ message_kind }}">
-            <p>{{ message }}</p>
-        </section>
-        {% endif %}
-
-        <section class="notes">
-            <p>Интерфейс принимает GET-параметры <code>verdict</code> и <code>id</code> для фиксации решения. by Flask 0.12.2</p>
+        <section class="controls controls-single">
+            <a class="action action-main" href="/main">ПЕРЕЙТИ</a>
         </section>
     </main>
 </body>
