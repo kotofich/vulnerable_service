@@ -1,0 +1,54 @@
+# Используем python 3.8 на Debian
+FROM python:3.8-slim
+
+# Ставим зависимости (gcc и libc6-dev необходимы для компиляции, strace/ltrace для отладки)
+RUN apt-get update && apt-get install -y openssh-server sudo procps curl gcc libc6-dev strace
+
+# Настройка SSH сервера
+RUN mkdir /var/run/sshd && \
+    sed -i 's/#PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/sshd_config && \
+    sed -i 's/PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/sshd_config && \
+    sed -i 's/#PubkeyAuthentication yes/PubkeyAuthentication yes/' /etc/ssh/sshd_config && \
+    ssh-keygen -A
+
+# Создаем пользователя user с пустым паролем
+RUN useradd -m -s /bin/bash user && \
+    passwd -d user
+
+# Генерируем SSH ключ БЕЗ ПАРОЛЯ (-N "")
+# Это позволит зайти по ключу сразу после того, как игрок достанет его через SSTI
+RUN mkdir -p /home/user/.ssh && \
+    ssh-keygen -t rsa -b 2048 -N "" -f /home/user/.ssh/id_rsa && \
+    cp /home/user/.ssh/id_rsa.pub /home/user/.ssh/authorized_keys && \
+    chown -R user:user /home/user/.ssh && \
+    chmod 700 /home/user/.ssh && \
+    chmod 600 /home/user/.ssh/id_rsa /home/user/.ssh/authorized_keys
+
+# --- УЯЗВИМОСТЬ: PATH HIJACKING ---
+
+COPY service_check.c /tmp/service_check.c
+
+# Компилируем с флагами для сохранения читаемости строк (чтобы strings видел "id")
+RUN gcc -O0 -fno-merge-constants /tmp/service_check.c -o /usr/local/bin/service_check && \
+    rm /tmp/service_check.c && \
+    chmod u+s /usr/local/bin/service_check
+
+# Убеждаемся, что у Python НЕТ SUID-бита
+RUN chmod 755 /usr/local/bin/python3.8
+
+# ----------------------------------
+
+# Код приложения
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+COPY . .
+RUN chown -R user:user /app
+
+# Флаги и запуск
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+EXPOSE 5000 22
+
+ENTRYPOINT ["/entrypoint.sh"]

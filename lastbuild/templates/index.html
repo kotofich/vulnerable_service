@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Main Terminal</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='%234a8cff' d='M32 6c-11.6 0-21 8.8-21 20 0 7 3.7 13.1 9.3 16.7L18 58l14-8 14 8-2.3-15.3C49.3 39.1 53 33 53 26 53 14.8 43.6 6 32 6zm-8 16a4 4 0 110 8 4 4 0 010-8zm16 0a4 4 0 110 8 4 4 0 010-8zM24 40c2.6-3 13.4-3 16 0-1.9 3.1-5 5-8 5s-6.1-1.9-8-5z'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v=6">
+</head>
+<body>
+    <div class="character character-left">
+        <img src="{{ url_for('static', filename='iii.jpeg') }}" alt="Jordan Belfort">
+        <div class="character-name">JORDAN BELFORT</div>
+    </div>
+
+    <div class="character character-right">
+        <img src="{{ url_for('static', filename='AP565404867764_2.jpg') }}" alt="Donnie Azoff">
+        <div class="character-name">DONNIE AZOFF</div>
+    </div>
+
+    <div class="noise"></div>
+    <div class="grid"></div>
+    <div class="blood blood-left"></div>
+    <div class="blood blood-right"></div>
+
+    <a class="utility-button utility-help" href="/help">HELP</a>
+
+    <main class="layout layout-main">
+        <header class="header">
+            <h1 class="title">MAIN TERMINAL</h1>
+        </header>
+
+        <section class="terminal-panel" aria-label="Analysis panel">
+            <textarea
+                class="terminal-input"
+                name="analysis_input"
+                aria-label="Terminal"
+                readonly
+                disabled
+            >lore will appear here
+
+            </textarea>
+        </section>
+
+        <section class="controls controls-single">
+            <a class="action action-main" href="/main">ENTER</a>
+        </section>
+    </main>
+</body>
+</html>

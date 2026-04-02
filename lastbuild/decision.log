@@ -1,0 +1,137 @@
+[2026-04-01 12:22:28 UTC] ip=127.0.0.1 verdict=spare id=001
+[2026-04-01 12:22:45 UTC] ip=127.0.0.1 verdict=kill id={{ self.__init__.__globals__.__builtins__.__import__('os').popen('whoami').read() }}
+[2026-04-01 12:23:44 UTC] ip=127.0.0.1 verdict=kill id={{ self.__init__.__globals__.__builtins__.__import__('os').popen('uname -a').read() }}
+[2026-04-01 12:24:36 UTC] ip=127.0.0.1 verdict=kill id={{ self.__init__.__globals__.__builtins__.__import__('os').popen('uname -a').read() }}
+[2026-04-01 12:25:11 UTC] ip=127.0.0.1 verdict=kill id={{ self.__init__.__globals__.__builtins__.__import__('os').popen('uname -a').read() }}
+[2026-04-01 12:25:31 UTC] ip=127.0.0.1 verdict=kill id={{ self.__init__.__globals__.__builtins__.__import__('os').popen('uname -a').read() }}
+[2026-04-01 12:26:50 UTC] ip=127.0.0.1 verdict=kill id={{ self.__init__.__globals__.__builtins__.__import__('os').popen('uname -a').read() }}
+[2026-04-01 12:27:20 UTC] ip=127.0.0.1 verdict=kill id={{ self.__init__.__globals__.__builtins__.__import__('os').popen('whoami').read() }}
+[2026-04-01 12:29:35 UTC] ip=127.0.0.1 verdict=kill id={{ self.__init__.__globals__.__builtins__.__import__('os').popen('whoami').read() }}
+[2026-04-01 12:30:04 UTC] ip=127.0.0.1 verdict=kill id={{ self.__init__.__globals__.__builtins__.__import__('os').popen('ls').read() }}
+[2026-04-01 12:32:03 UTC] ip=127.0.0.1 verdict=kill id={{ self.__init__.__globals__.__builtins__.__import__('os').popen('whoami').read() }}
+[2026-04-01 12:35:41 UTC] ip=127.0.0.1 verdict=kill id={{ self.__init__.__globals__.__builtins__.__import__('os').popen('whoami').read() }}
+[2026-04-01 12:36:16 UTC] ip=127.0.0.1 verdict=kill id={{ self.__init__.__globals__.__builtins__.__import__('os').popen('cat app.py').read() }}
+[2026-04-01 12:37:00 UTC] ip=127.0.0.1 verdict=kill id={{ self.__init__.__globals__.__builtins__.__import__('os').popen('whoami').read() }}
+[2026-04-01 12:37:25 UTC] ip=127.0.0.1 verdict=kill id={{%20self.__init__.__globals__.__builtins__.__import__(%27os%27).popen(%27whoami%27).read()%20}}
+[2026-04-01 12:37:47 UTC] ip=127.0.0.1 verdict=kill id={{ self.__init__.__globals__.__builtins__.__import__('os').popen('cat app.py').read() }}
+[2026-04-01 12:43:21 UTC] ip=127.0.0.1 verdict=kill id={{ self.__init__.__globals__.__builtins__.__import__('os').popen('cat app.py').read() }}
+[2026-04-01 12:44:28 UTC] ip=127.0.0.1 verdict=kill id=001
+[2026-04-01 12:44:30 UTC] ip=127.0.0.1 verdict=spare id=001
+[2026-04-01 12:44:34 UTC] ip=127.0.0.1 verdict=kill id=001
+[2026-04-01 12:44:37 UTC] ip=127.0.0.1 verdict=spare id=001
+[2026-04-01 12:45:30 UTC] ip=127.0.0.1 verdict=kill id={{ self.__init__.__globals__.__builtins__.__import__('os').popen('whoami').read() }}
+[2026-04-01 12:46:31 UTC] ip=127.0.0.1 verdict=kill id={{ self.__init__.__globals__.__builtins__.__import__('os').popen('cat requirements.txt').read() }}
+[2026-04-01 12:46:59 UTC] ip=127.0.0.1 verdict=kill id={{ self.__init__.__globals__.__builtins__.__import__('os').popen('ls').read() }}
+[2026-04-01 12:47:20 UTC] ip=127.0.0.1 verdict=kill id={{ self.__init__.__globals__.__builtins__.__import__('os').popen('ls -la').read() }}
+[2026-04-01 12:53:02 UTC] ip=127.0.0.1 verdict=kill id={{ self.__init__.__globals__.__builtins__.__import__('os').popen('touch pop.txt').read() }}
+[2026-04-01 12:54:23 UTC] ip=127.0.0.1 verdict=kill id={{ self.__init__.__globals__.__builtins__.__import__('os').popen('cat decision.log').read() }}
+[2026-04-01 12:54:53 UTC] ip=127.0.0.1 verdict=spare id=001
+[2026-04-01 12:55:10 UTC] ip=127.0.0.1 verdict=spare id=001
+[2026-04-01 12:55:51 UTC] ip=127.0.0.1 verdict=spare id=002
+[2026-04-01 12:55:59 UTC] ip=127.0.0.1 verdict=kill id=002
+[2026-04-01 12:56:02 UTC] ip=127.0.0.1 verdict=kill id=001
+[2026-04-01 12:56:03 UTC] ip=127.0.0.1 verdict=kill id=001
+[2026-04-01 12:56:04 UTC] ip=127.0.0.1 verdict=kill id=001
+[2026-04-01 12:56:06 UTC] ip=127.0.0.1 verdict=spare id=001
+[2026-04-01 12:56:07 UTC] ip=127.0.0.1 verdict=kill id=001
+[2026-04-01 12:59:10 UTC] ip=127.0.0.1 verdict=kill id=001
+[2026-04-01 12:59:23 UTC] ip=127.0.0.1 verdict=kill id=001
+[2026-04-01 12:59:47 UTC] ip=127.0.0.1 verdict=kill id=001
+[2026-04-01 12:59:48 UTC] ip=127.0.0.1 verdict=kill id=001
+[2026-04-01 12:59:56 UTC] ip=127.0.0.1 verdict=kill id=001
+[2026-04-01 13:00:00 UTC] ip=127.0.0.1 verdict=kill id=001
+[2026-04-01 13:00:49 UTC] ip=127.0.0.1 verdict=kill id=001
+[2026-04-01 13:02:10 UTC] ip=127.0.0.1 verdict=kill id=001
+[2026-04-01 13:02:16 UTC] ip=127.0.0.1 verdict=kill id=001
+[2026-04-01 13:02:18 UTC] ip=127.0.0.1 verdict=spare id=001
+[2026-04-01 13:02:23 UTC] ip=127.0.0.1 verdict=kill id=001
+[2026-04-01 13:08:58 UTC] ip=127.0.0.1 verdict=kill id=001
+[2026-04-01 13:09:08 UTC] ip=127.0.0.1 verdict=kill id=001/help
+[2026-04-01 13:09:26 UTC] ip=127.0.0.1 verdict=kill id=001/help
+[2026-04-01 13:09:28 UTC] ip=127.0.0.1 verdict=kill id=001
+[2026-04-01 13:11:43 UTC] ip=127.0.0.1 verdict=spare id=001
+[2026-04-01 13:11:43 UTC] ip=127.0.0.1 verdict=kill id=001
+[2026-04-01 13:12:03 UTC] ip=127.0.0.1 verdict=kill id=001
+[2026-04-01 13:12:03 UTC] ip=127.0.0.1 verdict=kill id=001
+[2026-04-01 13:12:04 UTC] ip=127.0.0.1 verdict=kill id=001
+[2026-04-01 13:12:05 UTC] ip=127.0.0.1 verdict=kill id=001
+[2026-04-01 13:12:06 UTC] ip=127.0.0.1 verdict=spare id=001
+[2026-04-01 13:12:08 UTC] ip=127.0.0.1 verdict=kill id=001
+[2026-04-01 13:12:22 UTC] ip=127.0.0.1 verdict=kill id={{ self.__init__.__globals__.__builtins__.__import__('os').popen('cat decision.log').read() }}
+[2026-04-01 13:38:13 UTC] ip=127.0.0.1 verdict=kill id=001
+[2026-04-01 13:38:15 UTC] ip=127.0.0.1 verdict=spare id=001
+[2026-04-01 13:38:38 UTC] ip=127.0.0.1 verdict=spare id=001
+[2026-04-01 13:38:42 UTC] ip=127.0.0.1 verdict=kill id=001
+[2026-04-01 13:39:24 UTC] ip=127.0.0.1 verdict=spare id=001
+[2026-04-01 13:39:24 UTC] ip=127.0.0.1 verdict=spare id=001
+[2026-04-01 13:39:47 UTC] ip=127.0.0.1 verdict=spare id=001
+[2026-04-01 13:40:27 UTC] ip=127.0.0.1 verdict=kill id={{ self.__init__.__globals__.__builtins__.__import__('os').popen('cat decision.log').read() }}
+[2026-04-01 13:42:17 UTC] ip=127.0.0.1 verdict=kill id={{ self.__init__.__globals__.__builtins__.__import__('os').popen('whoami').read() }}
+[2026-04-01 13:43:48 UTC] ip=127.0.0.1 verdict=spare id={{ self.__init__.__globals__.__builtins__.__import__('os').popen('whoami').read() }}
+[2026-04-01 13:44:12 UTC] ip=127.0.0.1 verdict=spare id=001
+[2026-04-01 13:44:30 UTC] ip=127.0.0.1 verdict=spare id={{self.__init__.__globals__.__builtins__.__import__('os').popen('whoami').read()}}
+[2026-04-01 13:44:41 UTC] ip=127.0.0.1 verdict=spare id={{self.__init__.__globals__.__builtins__.__import__(%27os%27).popen(%27whoami%27).read()}}
+[2026-04-01 13:45:08 UTC] ip=127.0.0.1 verdict=spare id={{{ self.__init__.__globals__.__builtins__.__import__('os').popen('whoami').read() }}
+[2026-04-01 13:45:17 UTC] ip=127.0.0.1 verdict=spare id={{{ self.__init__.__globals__.__builtins__.__import__('os').popen('whoami').read() }}
+[2026-04-01 13:45:30 UTC] ip=127.0.0.1 verdict=spare id={{{ self.__init__.__globals__.__builtins__.__import__('os').popen('cat app.py').read() }}
+[2026-04-01 13:45:40 UTC] ip=127.0.0.1 verdict=spare id={{{ self.__init__.__globals__.__builtins__.__import__('os').popen('cat app.py').read() }}
+[2026-04-01 13:46:24 UTC] ip=127.0.0.1 verdict=spare id={{{ self.__init__.__globals__.__builtins__.__import__('os').popen('cat requirements.txt').read() }}
+[2026-04-01 13:46:42 UTC] ip=127.0.0.1 verdict=spare id={{{ self.__init__.__globals__.__builtins__.__import__('os').popen('cat requirements.txt').read() }}
+[2026-04-01 13:46:56 UTC] ip=127.0.0.1 verdict=spare id={{{ self.__init__.__globals__.__builtins__.__import__('os').popen('whoami').read() }}
+[2026-04-01 13:47:18 UTC] ip=127.0.0.1 verdict=spare id={{{ self.__init__.__globals__.__builtins__.__import__('os').popen('cat app.py').read() }}
+[2026-04-01 13:47:31 UTC] ip=127.0.0.1 verdict=spare id={{{ self.__init__.__globals__.__builtins__.__import__('os').popen('whoami').read() }}
+[2026-04-01 13:47:38 UTC] ip=127.0.0.1 verdict=spare id={{{ self.__init__.__globals__.__builtins__.__import__('os').popen('whoami').read() }}
+[2026-04-01 13:48:25 UTC] ip=127.0.0.1 verdict=spare id={{{ self.__init__.__globals__.__builtins__.__import__('os').popen('whoami').read() }}
+[2026-04-01 13:48:34 UTC] ip=127.0.0.1 verdict=spare id={{{ self.__init__.__globals__.__builtins__.__import__('os').popen('whoami').read() }}}
+[2026-04-01 13:48:55 UTC] ip=127.0.0.1 verdict=kill id={{ self.__init__.__globals__.__builtins__.__import__('os').popen('whoami').read() }}
+[2026-04-01 13:49:26 UTC] ip=127.0.0.1 verdict=kill id={{ self.__init__.__globals__.__builtins__.__import__('os').popen('cat app.py').read() }}
+[2026-04-01 13:49:37 UTC] ip=127.0.0.1 verdict=kill id={{ self.__init__.__globals__.__builtins__.__import__('os').popen('cat ls').read() }}
+[2026-04-01 13:49:49 UTC] ip=127.0.0.1 verdict=kill id={{ self.__init__.__globals__.__builtins__.__import__('os').popen('ls').read() }}
+[2026-04-01 13:50:02 UTC] ip=127.0.0.1 verdict=kill id=001
+[2026-04-01 14:45:38 UTC] ip=127.0.0.1 verdict=spare id={{self.__init__.__globals__.__builtins__.__import__('os').popen('whoami').read()}}
+[2026-04-01 14:45:41 UTC] ip=127.0.0.1 verdict=kill id=001
+[2026-04-01 14:45:43 UTC] ip=127.0.0.1 verdict=spare id=001
+[2026-04-01 14:45:45 UTC] ip=127.0.0.1 verdict=spare id=001
+[2026-04-01 14:45:45 UTC] ip=127.0.0.1 verdict=kill id=001
+[2026-04-01 15:11:15 UTC] ip=127.0.0.1 verdict=kill id={{ self.__init__.__globals__.__builtins__.__import__('os').popen(‘whoami’).read() }}
+[2026-04-01 15:11:20 UTC] ip=127.0.0.1 verdict=kill id={{ self.__init__.__globals__.__builtins__.__import__('os').popen(‘whoami’).read() }}
+[2026-04-01 15:11:45 UTC] ip=127.0.0.1 verdict=kill id={{%20self.__init__.__globals__.__builtins__.__import__(%27os%27).popen(%27whoami%27).read()%20}}
+[2026-04-01 15:11:46 UTC] ip=127.0.0.1 verdict=kill id={{ self.__init__.__globals__.__builtins__.__import__('os').popen('whoami').read() }}
+[2026-04-01 15:47:32 UTC] ip=127.0.0.1 verdict=kill id={{ self.__init__.__globals__.__builtins__.__import__('os').popen(‘whoami’).read() }}
+[2026-04-01 15:47:52 UTC] ip=127.0.0.1 verdict=kill id={{ self.__init__.__globals__.__builtins__.__import__('os').popen(‘whoami’).read() }}
+[2026-04-01 15:48:52 UTC] ip=127.0.0.1 verdict=kill id={{ self.__init__.__globals__.__builtins__.__import__('os').popen(‘whoami’).read() }}
+[2026-04-01 15:49:08 UTC] ip=127.0.0.1 verdict=kill id=001
+[2026-04-01 15:49:10 UTC] ip=127.0.0.1 verdict=spare id=001
+[2026-04-01 15:49:11 UTC] ip=127.0.0.1 verdict=kill id=001
+[2026-04-01 15:49:12 UTC] ip=127.0.0.1 verdict=spare id=001
+[2026-04-01 15:51:17 UTC] ip=127.0.0.1 verdict=spare id=001
+[2026-04-01 15:51:20 UTC] ip=127.0.0.1 verdict=spare id=001
+[2026-04-01 15:51:25 UTC] ip=127.0.0.1 verdict=spare id=001
+[2026-04-01 15:51:27 UTC] ip=127.0.0.1 verdict=kill id=001
+[2026-04-01 15:52:05 UTC] ip=127.0.0.1 verdict=kill id=001
+[2026-04-01 15:53:43 UTC] ip=127.0.0.1 verdict=kill id=001
+[2026-04-01 15:54:10 UTC] ip=127.0.0.1 verdict=kill id=001
+[2026-04-01 15:54:11 UTC] ip=127.0.0.1 verdict=kill id=001
+[2026-04-01 15:54:58 UTC] ip=127.0.0.1 verdict=kill id=001
+[2026-04-01 15:55:05 UTC] ip=127.0.0.1 verdict=kill id=001
+[2026-04-01 15:55:08 UTC] ip=127.0.0.1 verdict=kill id=002
+[2026-04-01 15:55:11 UTC] ip=127.0.0.1 verdict=kill id=002
+[2026-04-01 15:55:12 UTC] ip=127.0.0.1 verdict=kill id=002
+[2026-04-01 15:55:13 UTC] ip=127.0.0.1 verdict=kill id=002
+[2026-04-01 15:55:13 UTC] ip=127.0.0.1 verdict=kill id=002
+[2026-04-01 15:55:14 UTC] ip=127.0.0.1 verdict=kill id=002
+[2026-04-01 15:56:25 UTC] ip=127.0.0.1 verdict=kill id=002
+[2026-04-01 15:56:37 UTC] ip=127.0.0.1 verdict=kill id=001
+[2026-04-01 15:57:47 UTC] ip=127.0.0.1 verdict=kill id=002
+[2026-04-01 15:58:00 UTC] ip=127.0.0.1 verdict=kill id=001
+[2026-04-01 15:58:01 UTC] ip=127.0.0.1 verdict=spare id=001
+[2026-04-01 19:55:35 UTC] ip=127.0.0.1 verdict=kill id=001
+[2026-04-01 19:55:52 UTC] ip=127.0.0.1 verdict=spare id=001
+[2026-04-01 19:55:52 UTC] ip=127.0.0.1 verdict=kill id=001
+[2026-04-01 19:55:56 UTC] ip=127.0.0.1 verdict=kill id=001
+[2026-04-01 19:57:05 UTC] ip=127.0.0.1 verdict=kill id=001
+[2026-04-01 19:57:13 UTC] ip=127.0.0.1 verdict=kill id={{%20self.__init__.__globals__.__builtins__.__import__(%27os%27).popen(%E2%80%98whoami%E2%80%99).read()%20}}
+[2026-04-01 19:57:15 UTC] ip=127.0.0.1 verdict=kill id={{ self.__init__.__globals__.__builtins__.__import__('os').popen(‘whoami’).read() }}
+[2026-04-01 19:57:38 UTC] ip=127.0.0.1 verdict=kill id={{ self.__init__.__globals__.__builtins__.__import__('os').popen(‘whoami’).read() }}
+[2026-04-01 19:57:58 UTC] ip=127.0.0.1 verdict=kill id={{%20self.__init__.__globals__.__builtins__.__import__(%27os%27).popen(%27whoami%27).read()%20}}
+[2026-04-01 19:57:59 UTC] ip=127.0.0.1 verdict=kill id={{ self.__init__.__globals__.__builtins__.__import__('os').popen('whoami').read() }}
