@@ -2,7 +2,7 @@
     --bg: #0a0a2a;
     --panel: rgba(20, 20, 40, 0.84);
     --line: rgba(100, 150, 255, 0.12);
-    --blue: #ff4a4a;
+    --blue: #4a8cff;
     --blue-soft: rgba(74, 140, 255, 0.22);
     --pink: #ff6b9d;
     --pink-soft: rgba(255, 107, 157, 0.22);
@@ -292,7 +292,6 @@ body {
     border-color: rgba(100, 200, 120, 0.42);
 }
 
-/* Кнопка action-main теперь такая же как action-kill */
 .action-main {
     color: #fff;
     background: linear-gradient(135deg, var(--blue), var(--pink));
@@ -303,20 +302,6 @@ body {
 .action-main:hover {
     transform: translateY(-2px);
     box-shadow: 0 0 28px rgba(255, 107, 157, 0.7);
-}
-
-.utility-button {
-    color: #fff;
-    background: linear-gradient(135deg, var(--blue), var(--pink));
-    border: 1px solid rgba(255, 255, 255, 0.34);
-    box-shadow: 0 0 18px rgba(74, 140, 255, 0.4);
-}
-
-.utility-button:hover {
-    transform: translateY(-2px);
-    box-shadow:
-        0 0 24px rgba(74, 140, 255, 0.55),
-        0 0 32px rgba(255, 107, 157, 0.45);
 }
 
 .controls-single {
@@ -340,10 +325,15 @@ body {
     text-transform: uppercase;
     font-size: 0.82rem;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    color: #fff;
+    background: linear-gradient(135deg, var(--blue), var(--pink));
+    border: 1px solid rgba(255, 255, 255, 0.34);
+    box-shadow: 0 0 18px rgba(74, 140, 255, 0.4);
 }
 
 .utility-button:hover {
     transform: translateY(-2px);
+    box-shadow: 0 0 24px rgba(74, 140, 255, 0.55), 0 0 32px rgba(255, 107, 157, 0.45);
 }
 
 .terminal-panel {
@@ -370,7 +360,7 @@ body {
 }
 
 .terminal-input::placeholder {
-    color: #ff8bb5;
+    color: var(--pink);
 }
 
 .terminal-input:focus {
@@ -496,53 +486,3 @@ body {
         padding: 8px 14px;
     }
 }
-.lor-button {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 100;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 140px;
-    min-height: 56px;
-    padding: 14px 28px;
-    background: linear-gradient(135deg, var(--blue), var(--pink));
-    color: #fff;
-    text-decoration: none;
-    font-family: "Courier New", Courier, monospace;
-    font-size: 1.1rem;
-    font-weight: bold;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    border: 2px solid rgba(255, 255, 255, 0.6);
-    border-radius: 8px;
-    box-shadow:
-        0 0 25px rgba(74, 140, 255, 0.8),
-        0 0 15px rgba(255, 107, 157, 0.6),
-        inset 0 0 10px rgba(255, 255, 255, 0.3);
-    transition: all 0.3s ease;
-    cursor: pointer;
-    backdrop-filter: blur(4px);
-    animation: pulse-glow 2s ease-in-out infinite;
-}
-
-.lor-button:hover {
-    transform: translateY(-3px) scale(1.05);
-    box-shadow:
-        0 0 35px rgba(74, 140, 255, 1),
-        0 0 25px rgba(255, 107, 157, 0.9),
-        inset 0 0 15px rgba(255, 255, 255, 0.5);
-    border-color: rgba(255, 255, 255, 0.9);
-}
-
-/* Анимация пульсации для привлечения внимания */
-@keyframes pulse-glow {
-    50% {
-        box-shadow: 0 0 35px rgba(74, 140, 255, 1), 0 0 20px rgba(255, 107, 157, 0.8);
-    }
-    0%, 100% {
-        box-shadow: 0 0 20px rgba(74, 140, 255, 0.6), 0 0 10px rgba(255, 107, 157, 0.4);
-    }
-}
-

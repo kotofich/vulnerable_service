@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Dark Verdict Terminal</title>
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='%23d10000' d='M32 6c-11.6 0-21 8.8-21 20 0 7 3.7 13.1 9.3 16.7L18 58l14-8 14 8-2.3-15.3C49.3 39.1 53 33 53 26 53 14.8 43.6 6 32 6zm-8 16a4 4 0 110 8 4 4 0 010-8zm16 0a4 4 0 110 8 4 4 0 010-8zM24 40c2.6-3 13.4-3 16 0-1.9 3.1-5 5-8 5s-6.1-1.9-8-5z'/%3E%3C/svg%3E">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v3">
 </head>
 <body>
     <div class="noise"></div>
@@ -19,22 +19,21 @@
 
     <main class="layout">
         <header class="header">
-            <p class="eyebrow glitch" data-text="SHADOW DOSSIER">SHADOW DOSSIER</p>
-            <h1 class="title">СУДЬБА ОБЪЕКТА</h1>
-            <p class="subtitle">ИДЕНТИФИКАТОР ЦЕЛИ: <span>{{ target_id }}</span></p>
+            <h1 class="title">Выбор объекта</h1>
+            <p class="subtitle">ИДЕНТИФИКАТОР: <span>{{ target_id }}</span></p>
         </header>
 
         <section class="portrait-frame" aria-label="Плейсхолдер личности">
             <div class="portrait-scan"></div>
             <div class="portrait-core">
                 <div class="silhouette"></div>
-                <div class="loading glitch" data-text="ЗАГРУЗКА ЛИЧНОСТИ...">ЗАГРУЗКА ЛИЧНОСТИ...</div>
+                <div class="loading glitch" data-text="ЗАГРУЗКА ОБЪЕКТА...">ЗАГРУЗКА ОБЪЕКТА...</div>
             </div>
         </section>
 
         <section class="controls">
-            <a class="action action-kill" href="/?verdict=kill&id=001">УБИТЬ</a>
-            <a class="action action-spare" href="/?verdict=spare&id=001">ОСТАВИТЬ В ЖИВЫХ</a>
+            <a class="action action-kill" href="/main?verdict=kill&id=001">ГОЛОСОВАТЬ</a>
+            <a class="action action-spare" href="/main?verdict=spare&id=001">ВОЗДЕРЖАТЬСЯ</a>
         </section>
 
         <!-- Результат SSTI (если есть) -->
