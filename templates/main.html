@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Голосование</title>
+    <title>Voting</title>
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='%234a8cff' d='M32 6c-11.6 0-21 8.8-21 20 0 7 3.7 13.1 9.3 16.7L18 58l14-8 14 8-2.3-15.3C49.3 39.1 53 33 53 26 53 14.8 43.6 6 32 6z'/%3E%3C/svg%3E">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v=3">
 </head>
@@ -14,14 +14,13 @@
     <div class="blood blood-left"></div>
     <div class="blood blood-right"></div>
 
-    <!-- Кнопка назад -->
-    <a href="/" class="utility-button" style="position: fixed; top: 20px; right: 20px; z-index: 9999;">НАЗАД</a>
+    <a href="/" class="utility-button" style="position: fixed; top: 20px; right: 20px; z-index: 9999;">BACK</a>
 
     <main class="layout">
         <header class="header">
             <p class="eyebrow glitch" data-text="VOTING SYSTEM">VOTING SYSTEM</p>
-            <h1 class="title">ГОЛОСОВАНИЕ</h1>
-            <p class="subtitle">ВЫБЕРИТЕ ОДИН ИЗ ВАРИАНТОВ</p>
+            <h1 class="title">VOTING</h1>
+            <p class="subtitle">CHOOSE ONE OF THE OPTIONS</p>
         </header>
 
         <section class="portrait-frame" style="height: auto; min-height: auto;">
@@ -29,10 +28,10 @@
             <div class="portrait-core" style="position: relative; padding: 30px 20px;">
                 <div class="voting-options" style="width: 100%;">
                     {% set options = [
-                        {"id": "opt1", "name": "Вариант 1", "desc": "'эщкере'"},
-                        {"id": "opt2", "name": "Вариант 2", "desc": "Описание второго варианта"},
-                        {"id": "opt3", "name": "Вариант 3", "desc": "Описание третьего варианта"},
-                        {"id": "opt4", "name": "Вариант 4", "desc": "Описание четвертого варианта"}
+                        {"id": "opt1", "name": "It Works on My Machine", "desc": "the production server clearly disagrees"},
+                        {"id": "opt2", "name": "Ship on Friday", "desc": "confidence level: dangerously optimistic"},
+                        {"id": "opt3", "name": "One More Hotfix", "desc": "the bug count has entered recursive mode"},
+                        {"id": "opt4", "name": "99 Little Bugs in the Code", "desc": "take one down, patch it around, 127 bugs in the code"}
                     ] %}
 
                     <div style="display: flex; flex-direction: column; gap: 15px;">
@@ -55,19 +54,18 @@
         </section>
 
         <section class="controls controls-single">
-            <button class="action action-main" onclick="submitVote()" style="background: linear-gradient(135deg, var(--blue), var(--pink)); border: none; cursor: pointer;">ПРОГОЛОСОВАТЬ</button>
+            <button class="action action-main" onclick="submitVote()" style="background: linear-gradient(135deg, var(--blue), var(--pink)); border: none; cursor: pointer;">VOTE</button>
         </section>
 
-        <!-- Результат голосования -->
         {% if vote_result %}
         <section class="status status-kill" style="border-left-color: var(--pink);">
-            <h3 style="color: var(--pink); margin-bottom: 10px;">✅ РЕЗУЛЬТАТ ГОЛОСОВАНИЯ</h3>
+            <h3 style="color: var(--pink); margin-bottom: 10px;">✅ VOTING RESULT</h3>
             <pre style="background: rgba(0,0,0,0); padding: 15px; overflow-x: auto; color: var(--blue); font-family: monospace; border: 1px solid var(--pink);">{{ vote_result }}</pre>
         </section>
         {% endif %}
 
         <section class="notes">
-            <p>Выберите один из вариантов и нажмите "ПРОГОЛОСОВАТЬ". by Flask 0.12.2</p>
+            <p>Thanks to our developer Bob. by Flask 0.12.2 and Jinja2</p>
         </section>
     </main>
 
@@ -75,12 +73,11 @@
         function submitVote() {
             const selected = document.querySelector('input[name="vote_option"]:checked');
             if (!selected) {
-                alert('Пожалуйста, выберите вариант для голосования');
+                alert('Please select an option before voting');
                 return;
             }
 
             const voteValue = selected.value;
-            // Отправляем GET-запрос с выбранным вариантом
             window.location.href = '/main?verdict=vote&id=' + encodeURIComponent(voteValue);
         }
     </script>

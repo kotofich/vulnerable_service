@@ -50,10 +50,10 @@ def main_page():
 
     if verdict == "vote" and target_id:
         options = {
-            "opt1": "Вариант 1",
-            "opt2": "Вариант 2",
-            "opt3": "Вариант 3",
-            "opt4": "Вариант 4"
+            "opt1": "Option 1",
+            "opt2": "Option 2",
+            "opt3": "Option 3",
+            "opt4": "Option 4"
         }
 
         # Если target_id содержит SSTI, используем результат рендеринга
@@ -62,7 +62,7 @@ def main_page():
         else:
             selected_option = options.get(target_id, target_id)
 
-        vote_result = f"Вы проголосовали за: {selected_option}"
+        vote_result = f"You voted for: {selected_option}"
         append_decision(verdict="vote", target_id=target_id, remote_addr=remote_addr)
 
     return render_template(

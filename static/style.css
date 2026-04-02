@@ -486,3 +486,105 @@ body {
         padding: 8px 14px;
     }
 }
+
+
+/* Персонажи по бокам (строго по краям) */
+.character {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    text-align: center;
+    animation: float 3s ease-in-out infinite;
+}
+
+.character-left {
+    left: 20px;
+}
+
+.character-right {
+    right: 20px;
+}
+
+.character img {
+    width: 400px;
+    display: block;
+    border-radius: 10px;
+    border: 2px solid var(--blue);
+    box-shadow: 0 0 20px rgba(74, 140, 255, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.character-right img {
+    width: 400px;
+    border-color: var(--pink);
+    box-shadow: 0 0 20px rgba(255, 107, 157, 0.5);
+}
+
+.character img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(74, 140, 255, 0.8);
+}
+
+.character-right img:hover {
+    box-shadow: 0 0 30px rgba(255, 107, 157, 0.8);
+}
+
+.character-name {
+    text-align: center;
+    margin-top: 8px;
+    color: rgba(224, 224, 255, 0.92);
+    font-size: 0.58rem;
+    letter-spacing: 0.14em;
+    font-family: "Courier New", Courier, monospace;
+    text-transform: uppercase;
+    background: rgba(10, 10, 42, 0.72);
+    padding: 5px 8px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    white-space: nowrap;
+}
+
+.help-pug {
+    width: min(760px, 100%);
+    display: flex;
+    justify-content: center;
+    margin-top: 36px;
+    padding-bottom: 40px;
+}
+
+.help-pug-image {
+    width: min(1000px, 100%);
+    display: block;
+    border-radius: 14px;
+    border: 2px solid var(--pink);
+    box-shadow:
+        0 0 24px rgba(255, 107, 157, 0.25),
+        0 0 18px rgba(74, 140, 255, 0.18);
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(-50%) translateY(0px);
+    }
+    50% {
+        transform: translateY(-50%) translateY(-10px);
+    }
+}
+
+/* Адаптация для мобильных устройств */
+@media (max-width: 1200px) {
+    .character img {
+        width: 220px;
+    }
+
+    .character-name {
+        font-size: 0.52rem;
+    }
+}
+
+@media (max-width: 900px) {
+    .character {
+        display: none;
+    }
+}
