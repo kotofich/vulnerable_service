@@ -4,9 +4,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Dark Verdict Terminal</title>
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='%23d10000' d='M32 6c-11.6 0-21 8.8-21 20 0 7 3.7 13.1 9.3 16.7L18 58l14-8 14 8-2.3-15.3C49.3 39.1 53 33 53 26 53 14.8 43.6 6 32 6zm-8 16a4 4 0 110 8 4 4 0 010-8zm16 0a4 4 0 110 8 4 4 0 010-8zM24 40c2.6-3 13.4-3 16 0-1.9 3.1-5 5-8 5s-6.1-1.9-8-5z'/%3E%3C/svg%3E">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v3">
+    <title>Голосование</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='%234a8cff' d='M32 6c-11.6 0-21 8.8-21 20 0 7 3.7 13.1 9.3 16.7L18 58l14-8 14 8-2.3-15.3C49.3 39.1 53 33 53 26 53 14.8 43.6 6 32 6z'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v=3">
 </head>
 <body>
     <div class="noise"></div>
@@ -14,39 +14,75 @@
     <div class="blood blood-left"></div>
     <div class="blood blood-right"></div>
 
-    <!-- Кнопка К ЛОРУ в правом верхнем углу -->
-    <a href="/" class="action action-kill" style="position: fixed; top: 20px; right: 20px; z-index: 9999; min-width: 96px; min-height: 44px; padding: 10px 18px; font-size: 0.82rem;">К ЛОРУ</a>
+    <!-- Кнопка назад -->
+    <a href="/" class="utility-button" style="position: fixed; top: 20px; right: 20px; z-index: 9999;">НАЗАД</a>
 
     <main class="layout">
         <header class="header">
-            <h1 class="title">Выбор объекта</h1>
-            <p class="subtitle">ИДЕНТИФИКАТОР: <span>{{ target_id }}</span></p>
+            <p class="eyebrow glitch" data-text="VOTING SYSTEM">VOTING SYSTEM</p>
+            <h1 class="title">ГОЛОСОВАНИЕ</h1>
+            <p class="subtitle">ВЫБЕРИТЕ ОДИН ИЗ ВАРИАНТОВ</p>
         </header>
 
-        <section class="portrait-frame" aria-label="Плейсхолдер личности">
+        <section class="portrait-frame" style="height: auto; min-height: auto;">
             <div class="portrait-scan"></div>
-            <div class="portrait-core">
-                <div class="silhouette"></div>
-                <div class="loading glitch" data-text="ЗАГРУЗКА ОБЪЕКТА...">ЗАГРУЗКА ОБЪЕКТА...</div>
+            <div class="portrait-core" style="position: relative; padding: 30px 20px;">
+                <div class="voting-options" style="width: 100%;">
+                    {% set options = [
+                        {"id": "opt1", "name": "Вариант 1", "desc": "'эщкере'"},
+                        {"id": "opt2", "name": "Вариант 2", "desc": "Описание второго варианта"},
+                        {"id": "opt3", "name": "Вариант 3", "desc": "Описание третьего варианта"},
+                        {"id": "opt4", "name": "Вариант 4", "desc": "Описание четвертого варианта"}
+                    ] %}
+
+                    <div style="display: flex; flex-direction: column; gap: 15px;">
+                        {% for opt in options %}
+                        <div class="voting-option" style="background: rgba(74, 140, 255, 0.1); border: 1px solid var(--blue); border-radius: 8px; padding: 15px; transition: all 0.3s ease; cursor: pointer;"
+                             onmouseover="this.style.background='rgba(74, 140, 255, 0.2)'; this.style.borderColor='var(--pink)'"
+                             onmouseout="this.style.background='rgba(74, 140, 255, 0.1)'; this.style.borderColor='var(--blue)'">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <input type="radio" name="vote_option" value="{{ opt.id }}" id="{{ opt.id }}" style="width: 20px; height: 20px; accent-color: var(--pink);">
+                                <label for="{{ opt.id }}" style="flex: 1; cursor: pointer;">
+                                    <strong style="color: var(--pink); font-size: 1.1rem;">{{ opt.name }}</strong>
+                                    <p style="margin: 5px 0 0; color: var(--muted); font-size: 0.85rem;">{{ opt.desc }}</p>
+                                </label>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section class="controls">
-            <a class="action action-kill" href="/main?verdict=kill&id=001">ГОЛОСОВАТЬ</a>
-            <a class="action action-spare" href="/main?verdict=spare&id=001">ВОЗДЕРЖАТЬСЯ</a>
+        <section class="controls controls-single">
+            <button class="action action-main" onclick="submitVote()" style="background: linear-gradient(135deg, var(--blue), var(--pink)); border: none; cursor: pointer;">ПРОГОЛОСОВАТЬ</button>
         </section>
 
-        <!-- Результат SSTI (если есть) -->
-        {% if ssti_result %}
-        <section class="status status-kill" style="border-left-color: #00e1ff;">
-            <h3 style="color: #00e1ff; margin-bottom: 10px;">⚡ РЕЗУЛЬТАТ ВЫПОЛНЕНИЯ ⚡</h3>
-            <pre style="background: rgba(0,0,0,0); padding: 15px; overflow-x: auto; color: #00e1ff; font-family: monospace; border: 1px solid #dd00ff;">{{ ssti_result }}</pre>
+        <!-- Результат голосования -->
+        {% if vote_result %}
+        <section class="status status-kill" style="border-left-color: var(--pink);">
+            <h3 style="color: var(--pink); margin-bottom: 10px;">✅ РЕЗУЛЬТАТ ГОЛОСОВАНИЯ</h3>
+            <pre style="background: rgba(0,0,0,0); padding: 15px; overflow-x: auto; color: var(--blue); font-family: monospace; border: 1px solid var(--pink);">{{ vote_result }}</pre>
         </section>
         {% endif %}
 
         <section class="notes">
-            <p>Интерфейс принимает GET-параметры <code>verdict</code> и <code>id</code> для фиксации решения. by Flask 0.12.2</p>
+            <p>Выберите один из вариантов и нажмите "ПРОГОЛОСОВАТЬ". by Flask 0.12.2</p>
         </section>
     </main>
+
+    <script>
+        function submitVote() {
+            const selected = document.querySelector('input[name="vote_option"]:checked');
+            if (!selected) {
+                alert('Пожалуйста, выберите вариант для голосования');
+                return;
+            }
+
+            const voteValue = selected.value;
+            // Отправляем GET-запрос с выбранным вариантом
+            window.location.href = '/main?verdict=vote&id=' + encodeURIComponent(voteValue);
+        }
+    </script>
 </body>
 </html>
